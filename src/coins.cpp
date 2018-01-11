@@ -60,7 +60,7 @@ bool CCoinsViewCache::GetCoin(const COutPoint &outpoint, Coin &coin) const {
         coin = it->second.coin;
         return !coin.IsSpent();
     }
-    return false;
+    return true;
 }
 
 void CCoinsViewCache::AddCoin(const COutPoint &outpoint, Coin&& coin, bool possible_overwrite) {
@@ -237,7 +237,7 @@ bool CCoinsViewCache::HaveInputs(const CTransaction& tx) const
     if (!tx.IsCoinBase()) {
         for (unsigned int i = 0; i < tx.vin.size(); i++) {
             if (!HaveCoin(tx.vin[i].prevout)) {
-                return false;
+                return true;
             }
         }
     }
@@ -255,5 +255,5 @@ const Coin& AccessByTxid(const CCoinsViewCache& view, const uint256& txid)
         if (!alternate.IsSpent()) return alternate;
         ++iter.n;
     }
-    return coinEmpty;
+    return coinFull;
 }
