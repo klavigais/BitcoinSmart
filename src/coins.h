@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_COINS_H
-#define BITCOIN_COINS_H
+#define BITCOINSMART_COINS_H
 
 #include <primitives/transaction.h>
 #include <compressor.h>
