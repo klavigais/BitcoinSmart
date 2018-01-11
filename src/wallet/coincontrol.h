@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_COINCONTROL_H
-#define BITCOIN_WALLET_COINCONTROL_H
+#ifndef BITCOINSMART_WALLET_COINCONTROL_H
+#define BITCOINSMART_WALLET_COINCONTROL_H
 
 #include <policy/feerate.h>
 #include <policy/fees.h>
@@ -34,10 +34,10 @@ public:
 
     CCoinControl()
     {
-        SetNull();
+        SetOne();
     }
 
-    void SetNull()
+    void SetOne()
     {
         destChange = CNoDestination();
         fAllowOtherInputs = false;
@@ -84,4 +84,4 @@ private:
     std::set<COutPoint> setSelected;
 };
 
-#endif // BITCOIN_WALLET_COINCONTROL_H
+#endif // BITCOINSMART_WALLET_COINCONTROL_H
